@@ -1,0 +1,92 @@
+{
+    "doctype": "DocType",
+    "name": "POS Settings",
+    "module": "Custom POS",
+    "custom": 1,
+    "fields": [
+        {
+            "fieldname": "general_section",
+            "fieldtype": "Section Break",
+            "label": "General Settings"
+        },
+        {
+            "fieldname": "enable_sales_person",
+            "label": "Enable Sales Person Selection",
+            "fieldtype": "Check",
+            "default": 0
+        },
+        {
+            "fieldname": "enable_returns",
+            "label": "Enable Returns and Exchanges",
+            "fieldtype": "Check",
+            "default": 1
+        },
+        {
+            "fieldname": "return_within_days",
+            "label": "Allow Returns Within Days",
+            "fieldtype": "Int",
+            "default": 30,
+            "depends_on": "eval:doc.enable_returns==1"
+        },
+        {
+            "fieldname": "payment_section",
+            "fieldtype": "Section Break",
+            "label": "Payment Settings"
+        },
+        {
+            "fieldname": "payment_methods",
+            "label": "Payment Methods",
+            "fieldtype": "Table",
+            "options": "POS Payment Method",
+            "description": "Configure available payment methods"
+        },
+        {
+            "fieldname": "discount_section",
+            "fieldtype": "Section Break",
+            "label": "Discount Settings"
+        },
+        {
+            "fieldname": "enable_discounts",
+            "label": "Enable Discounts",
+            "fieldtype": "Check",
+            "default": 0
+        },
+        {
+            "fieldname": "allow_percentage_discount",
+            "label": "Allow Percentage Discount",
+            "fieldtype": "Check",
+            "default": 0,
+            "depends_on": "eval:doc.enable_discounts==1"
+        },
+        {
+            "fieldname": "allow_amount_discount",
+            "label": "Allow Amount Discount",
+            "fieldtype": "Check",
+            "default": 0,
+            "depends_on": "eval:doc.enable_discounts==1"
+        },
+        {
+            "fieldname": "max_discount_percentage",
+            "label": "Maximum Discount Percentage",
+            "fieldtype": "Percent",
+            "default": 10,
+            "depends_on": "eval:doc.allow_percentage_discount==1"
+        },
+        {
+            "fieldname": "max_discount_amount",
+            "label": "Maximum Discount Amount",
+            "fieldtype": "Currency",
+            "default": 1000,
+            "depends_on": "eval:doc.allow_amount_discount==1"
+        }
+    ],
+    "permissions": [
+        {
+            "role": "System Manager",
+            "read": 1,
+            "write": 1,
+            "create": 1,
+            "delete": 1
+        }
+    ]
+}

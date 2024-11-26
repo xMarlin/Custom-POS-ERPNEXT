@@ -1,0 +1,27 @@
+{
+    "doctype": "DocType",
+    "name": "POS Payment Method",
+    "module": "Custom POS",
+    "istable": 1,
+    "fields": [
+        {
+            "fieldname": "payment_method",
+            "label": "Payment Method",
+            "fieldtype": "Link",
+            "options": "Mode of Payment",
+            "reqd": 1
+        },
+        {
+            "fieldname": "enabled",
+            "label": "Enabled",
+            "fieldtype": "Check",
+            "default": 1
+        },
+        {
+            "fieldname": "allow_returns",
+            "label": "Allow Returns",
+            "fieldtype": "Check",
+            "default": 1
+        }
+    ]
+}
